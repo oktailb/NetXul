@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="chrome://netxul/skin/" type="text/css"?>
+<overlay id="netxuloverlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+	<script type="application/x-javascript" src="md5.js"></script>
+	<script type="application/x-javascript" src="netxul.js"></script>
+	<menupopup id="menu_ToolsPopup">
+		<menuitem id="netxul_check_menu" label="NetXul"
+		type="checkbox" oncommand="show_netxul();" checked="true"/>
+	</menupopup>
+	<hbox id="browser">
+		<splitter/>
+		<vbox id="netxul" width="384">
+				<toolbar type="menubar" mode="full" id="netxul_toolbar">
+					 <toolbaritem align="center" id="netxul_menu">
+					     <menubar flex="1">
+						      <menu id="netxul-menubar" label="NetXul">
+							    <menupopup id="netxul-popup">
+								<menuitem label="Connexion" oncommand="netxul_connect();"/>
+								  <menu label="Etat">
+								     <menupopup id="netxul-state-menu">
+									<menuitem label="Actif" type="radio" name="status" oncommand="change_status('actif')"/>
+									<menuitem label="Away" type="radio" name="status" oncommand="change_status('away')"/>
+									<menuitem label="Idle" type="radio" name="status" oncommand="change_status('idle')"/>
+									<menuitem label="Lock" type="radio" name="status" oncommand="change_status('lock')"/>
+								     </menupopup>
+								  </menu>
+								  <menuitem label="Deconnexion" oncommand="netxul_disconnect();"/>
+								  <menuitem label="Cacher"/>
+								</menupopup>
+							</menu>
+							<menu id="msg-menubar" label="Message">
+						</menu>
+						<menu id="hlp-menubar" label="Aide">
+						      <menupopup id="netxul-popup3">
+							 <menuitem label="Aide"/>
+							 <menuitem label="About"/>
+							 <menuitem label="Others clients"/>
+							</menupopup>
+						</menu>
+					</menubar>
+					</toolbaritem>
+					<toolbarspring/>
+					<toolbaritem>
+					     <textbox id="new_msg" type="autocomplete" autocompletesearch="form-history" onkeypress="send_new_msg(event);"/>
+					     <image src="chrome://netxul/content/netxul.png" onload="read_conf();" onunload="netxul_disconnect();"/>
+					</toolbaritem>
+				</toolbar>
+				<tree id="contacts_tree" flex="8"
+				enableColumnDrag="true"
+				ondblclick="contact_selected();" >
+					<treecols>
+						<treecol label="Contact"
+						primary="true"
+						flex="1"
+						persist="width ordinal
+						hidden"/>
+						<splitter  class="tree-splitter"/>
+						<treecol
+						label="Emplacement"
+						flex="1"
+						persist="width ordinal
+						hidden"/>
+						<splitter  class="tree-splitter"/>
+						<treecol
+						label="Status"
+						flex="1" hidden="true"
+						persist="width ordinal
+                                                hidden"/>
+						<splitter
+						class="tree-splitter"
+						/>
+						<treecol
+						label="Comment"
+						flex="3" hidden="true"
+						 persist="width
+						 ordinal hidden"/>
+						<treecol
+						label="Socket"
+						flex="3" hidden="true"
+						 persist="width
+						 ordinal hidden"/>
+						<treecol
+						label="User"
+						flex="1" hidden="true"
+						 persist="width
+						 ordinal hidden"/>
+						<treecol
+						label="Where"
+						flex="1" hidden="true"
+						 persist="width
+						 ordinal hidden"/>
+					</treecols>
+					<treechildren id="contacts" />
+				</tree>
+				<textbox id="debug" value="" multiline="true" rows="5"/>
+				<progressmeter id="progress" value="0"/>
+		</vbox>
+	</hbox>
+	<vbox id="appcontent">
+	      <splitter />
+	      <tabbox id="netxul_dialog" style="overflow: auto">
+		      <tabs id="netxul_tabs">
+		      </tabs>
+		      <tabpanels id="netxul_tabpanels">
+			</tabpanels>
+		</tabbox>
+	</vbox>
+</overlay>

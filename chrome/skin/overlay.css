@@ -1,0 +1,5 @@
+@import url("chrome://global/skin");
+
+treechildren::-moz-tree-row {
+  height: 150px;
+}

@@ -1,0 +1,3 @@
+content netxul chrome/content/
+overlay chrome://browser/content/browser.xul chrome://netxul/content/overlay.xul
+overlay chrome://browser/content/preferences/preferences.xul chrome://netxul/content/overlay2.xul

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<overlay id="netxuloverlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  <script type="application/x-javascript" src="netxul.js"></script>
+    <prefwindow id="BrowserPreferences">
+      <prefpane id="netxulprefs" label="NetXul" image="chrome://netxul/content/netxul.png">
+        <preferences>
+	  <preference id="defaultNsServer" name="extensions.netxul.defaultNsServer" type="string" />
+	    <preference id="defaultNsPort" name="extensions.netxul.defaultNsPort" type="string" />
+	    <preference id="defaultNsUser" name="extensions.netxul.defaultNsUser" type="string" />
+	    <preference id="defaultNsPasswd" name="extensions.netxul.defaultNsPasswd" type="string" />
+	    <preference id="defaultNsLocation" name="extensions.netxul.defaultNsLocation" type="string" />
+	    <preference id="defaultNsComment" name="extensions.netxul.defaultNsComment" type="string" />
+	    <preference id="defaultNsList" name="extensions.netxul.defaultNsList" type="string" />
+	    <preference id="defaultNsBlackList" name="extensions.netxul.defaultNsBlackList" type="string" />
+	    <preference id="defaultNsAutoConnect" name="extensions.netxul.defaultNsAutoConnect" type="bool" />
+	    <preference id="defaultNsAutoReconnect" name="extensions.netxul.defaultNsAutoReconnect" type="bool"/>
+	  </preferences>
+	  <groupbox id="NetXulprefsGUI">
+	    <caption label="Parametres netsoul" />
+	    <grid flex="1">
+	      <columns>
+	        <column id="texte" />
+		<column id="separator" />
+		<column id="champs" flex="1"/>
+	      </columns>
+		  <rows>
+		    <row>
+		      <label value="netsoul server" id="defaultNsServerFieldLab"/>
+		      <label value=" : " />
+		      <textbox preference="defaultNsServer" id="defaultNsServerField"/>
+		    </row>
+		    <row>
+		      <label value="netsoul port" id="defaultNsPortFieldLab" />
+		      <label value=" : " />
+		      <textbox preference="defaultNsPort" id="defaultNsPortField"/>
+		    </row>
+		    <row>
+		      <label value="login" id="defaultNsUserFieldLab" />
+		      <label value=" : " />
+		      <textbox preference="defaultNsUser" id="defaultNsUserField"/>
+		    </row>
+		    <row>
+		      <label value="passwd SOCKS" id="defaultNsPasswdFieldLab" />
+		      <label value=" : " />
+		      <textbox preference="defaultNsPasswd" id="defaultNsPasswdField" type="password"/>
+		    </row>
+		    <row>
+		      <label value="location" id="defaultNsLocationFieldLab" />
+		      <label value=" : " />
+		      <textbox preference="defaultNsLocation" id="defaultNsLocationField" />
+		    </row>
+		    <row>
+		      <label value="comment" id="defaultNsCommentFieldLab" />
+		      <label value=" : " />
+		      <textbox preference="defaultNsComment" id="defaultNsCommentField" />
+		    </row>
+		    <row>
+		      <label value="contacts" id="defaultNsContactFieldLab" />
+		      <label value=" : " />
+		      <textbox preference="defaultNsList" id="watch_list" />
+		    </row>
+		    <row>
+		      <label value="blacklist" id="defaultNsBLFieldLab" />
+		      <label value=" : " />
+		      <textbox preference="defaultNsBlackList" id="black_list" />
+		    </row>
+		    <row>
+		      <checkbox label="Auto connect on startup" id="defaultNsAutoConnect" preference="defaultNsAutoConnect" />
+		      <label value=" - " />
+		      <checkbox label="Auto reconnect on when disconnected" id="defaultNsAutoReconnect" preference="defaultNsAutoReconnect" />
+		    </row>
+		  </rows>
+		</grid>
+		<button label="Default values" oncommand="netxul_load_default_values();" />
+ 	      </groupbox>
+	    </prefpane>
+	  </prefwindow>
+</overlay>
+
